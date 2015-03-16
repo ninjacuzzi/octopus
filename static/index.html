@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shoot Me</title>
+	<style type="text/css">
+		html,body {
+			background-color: #333;
+			color: #fff;
+			font-family: helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 12pt;
+		}
+	</style>
+
+<script src="http://code.jquery.com/jquery-latest.js"></script>  
+<script src="lib/jquery/jquery.cookie.js"></script> 
+	<script>
+
+    $(document).ready(function() {
+        $("#submitbutton").click(function(event){
+    	var nickname = $('input[name=nickname]').val();
+        var avatar = $('input[name=avatar]').val();
+          $.post(
+             "/api/players", {'nickname':nickname, 'avatar':avatar},
+             function(data) {
+                $.cookie("nickname", nickname);
+                $.cookie("avatar", avatar);
+                window.location.replace("game.html");
+             }
+          );
+
+      });
+   });
+
+	</script>
+
+	</head>
+	<body>
+		speak your name: <input type="text" name="nickname">
+		choose your avatar: <input type="text" name="avatar">
+		<input id="submitbutton" type="button" value="submit" />
+	</body>
+</html>
