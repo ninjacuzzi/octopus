@@ -56,7 +56,7 @@ ig.module(
 			});
 
 			$.ajax({
-			    url: 'http://localhost/api/players',
+			    url: '/api/players',
 			    type: 'GET',
 			    success: function(res) {
 			    	players = res.players;
@@ -106,7 +106,6 @@ ig.module(
 		draw: function() {
 			// Draw all entities and backgroundMaps
 			this.parent();
-			
 			
 			// Add your own drawing code here
 			var x = ig.system.width/2,
