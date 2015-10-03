@@ -1,4 +1,4 @@
-docker pull dockerfile/nodejs
+docker build -t nodegaming .
 
-docker run -v /home/live/Code/octopus:/data -p 80:3000 dockerfile/nodejs node app.js
+docker run -v /home/live/Code/octopus:/data -p 80:80 nodegaming node app.js
 
